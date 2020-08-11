@@ -1,0 +1,66 @@
+=== Contact Form 7 - Paystack Add-on ===
+Contributors: James Ugbanu
+Donate link: https://crystalwebpro.com/
+Tags: Paystack, contact form 7, contact form, Paystack Donation Addon
+Author URI: https://crystalwebpro.com/
+Requires at least: 3.0
+Tested up to: 5.6.0
+Requires PHP: 5.6
+Stable tag: 1.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Integrates Paystack with Contact Form 7 for redirecting user to payment page for the any purpose like donations or any other payment. 
+
+== Description ==
+= Overview =
+
+This Addon integrates Paystack with Contact Form 7.
+
+Each contact form can have its own Paystack settings. When a contact form is enabled with Paystack, and the user submits the form it will send the email as usual, then auto redirect to payment confirmation with details entered in plugin settings.  
+
+If you have any problems, questions, or issues about this plugin then please create a support request and we will be more than happy to help
+
+Note: This Paystack plugin works with both the old and new Contact Form 7 interface. A Paystack account is required to use Paystack integration. 
+
+= Contact Form 7 - Paystack Integration Add-on Features =
+
+*	Set Payment Title, Description and Amount per contact form
+*   Built in support 2 currencies (Please confirm if your country has Paystack payment gateway. For any issue please contact to plugin support)
+*	Paystack testing through SandBox
+*	Choose a cancel payment URL
+*	Choose a succesful payment URL
+
+== Installation ==
+
+= Automatic Installation =
+> 1. Sign in to your WordPress site as an administrator.
+> 2. In the main menu go to Plugins -> Add New.
+> 3. Search for Contact Form 7 - Paystack Add-on and click install.
+> 4. That's it. You are now ready to start accepting Paystack payment on your website through your contact form.
+
+== Frequently Asked Questions ==
+
+= How do I use it? = 
+
+You can integrate Paystack payment gateway with Contact Form 7 plugin. If configured properly, form will redirected to Paystack payment gateway with amount you have configured in the settings. 
+
+= How do I get help? =
+
+Help is provided via the [plugin support forum](https://wordpress.org/support/plugin/contact-form-7-paystack-integration) only.
+
+= How do I get Secret or Test Key on Paystack  =
+
+1. You can find your live or test secret key in your Paystack Dashboard [https://dashboard.paystack.com/#/settings/developer]
+
+
+== Screenshots ==
+1. Paystack settings Paystack Tab
+2. Paystack settings Other Setting Tab
+3. Options while editing a contact form
+
+
+== Changelog ==
+
+= 1.0 =
+Initial release
