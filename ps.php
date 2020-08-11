@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Contact Form 7 - Paystack Add-on
+Plugin Name: CF7 - Paystack Add-on
 Plugin URI: https://crystalwebpro.com/open-source/
 Description: Integrates Paystack Payment Gateway with Contact Form 7
 Author: James Ugbanu

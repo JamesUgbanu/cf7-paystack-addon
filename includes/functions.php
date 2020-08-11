@@ -30,7 +30,7 @@
 			
 			$rate_text = sprintf( __( 'Thank you for using our plugin. Please <a href="%2$s" target="_blank">rate us on WordPress.org</a>', '' ),
 				'https://crystalwebpro.com',
-				'https://wordpress.org/support/plugin/contact-form-7-paystack-integration/reviews/?filter=5'
+				'https://wordpress.org/support/plugin/cf7-paystack-integration/reviews/?filter=5'
 			);
 			
 			return str_replace( '</span>', '', $footer_text ) . ' | ' . $rate_text . '</span>';
