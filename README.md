@@ -49,5 +49,5 @@ Help is provided via the [plugin support forum](https://wordpress.org/support/pl
 3. Contact form 7  Paystack tab
 
 ![alt text](https://github.com/JamesUgbanu/contact-form-paystack-addon/blob/master/assets/img/paystack%20account.PNG)
-![alt text](https://github.com/JamesUgbanu/contact-form-paystack-addon/blob/master/assets/img/email-field.PNG)
+![alt text](https://github.com/JamesUgbanu/contact-form-paystack-addon/blob/master/assets/img/email-field.png)
 ![alt text](https://github.com/JamesUgbanu/contact-form-paystack-addon/blob/master/assets/img/paystack%20details%20on%20contact%20form%207.PNG)
