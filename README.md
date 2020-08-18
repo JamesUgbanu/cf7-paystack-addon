@@ -36,7 +36,7 @@ You can integrate Paystack payment gateway with Contact Form 7 plugin. If config
 
 ## How do I get help?
 
-Help is provided via the [plugin support forum](https://wordpress.org/support/plugin/contact-form-7-paystack-integration) only.
+Help is provided via the [plugin support forum](https://wordpress.org/support/plugin/contact-form-paystack-addon) only.
 
 ## How do I get Secret or Test Key on Paystack 
 
