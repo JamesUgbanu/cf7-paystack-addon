@@ -215,6 +215,15 @@ function cf7ps_admin_table()
                                         <br/><br/>
                                     </td>
                                 </tr>
+<<<<<<< HEAD
+=======
+                                <tr>
+                                    <td class='cf7ps_width'><b>Test Secret Key: </b></td>
+                                    <td><input type='text' size=40 name='sec_key_test'
+                                               value='<?php _e($options['sec_key_test']); ?>'> Optional
+                                    </td>
+                                </tr>
+>>>>>>> fc1f4e6f0584284babcff86f5532c26271d3a53e
 
                                 <tr>
                                     <td>
