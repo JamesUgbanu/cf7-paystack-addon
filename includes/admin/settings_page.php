@@ -26,11 +26,6 @@ function cf7ps_admin_table()
             $options['currency'] = '';
         }
 
-        $options['cancel'] = sanitize_text_field($_POST['cancel']);
-        if (empty($options['cancel'])) {
-            $options['cancel'] = '';
-        }
-
         $options['sec_key_live'] = sanitize_text_field($_POST['sec_key_live']);
         if (empty($options['sec_key_live'])) {
             $options['sec_key_live'] = '';
@@ -40,46 +35,6 @@ function cf7ps_admin_table()
         $options['sec_key_test'] = sanitize_text_field($_POST['sec_key_test']);
         if (empty($options['sec_key_test'])) {
             $options['sec_key_test'] = '';
-        }
-
-        $options['pay'] = sanitize_text_field($_POST['pay']);
-        if (empty($options['pay'])) {
-            $options['pay'] = 'Pay';
-        }
-
-        $options['status'] = sanitize_text_field($_POST['status']);
-        if (empty($options['status'])) {
-            $options['status'] = 'Status';
-        }
-
-        $options['success'] = sanitize_text_field($_POST['success']);
-        if (empty($options['success'])) {
-            $options['success'] = 'Payment Successful';
-        }
-
-        $options['failed'] = sanitize_text_field($_POST['failed']);
-        if (empty($options['failed'])) {
-            $options['failed'] = 'Payment Failed';
-        }
-
-        $options['processing'] = sanitize_text_field($_POST['processing']);
-        if (empty($options['processing'])) {
-            $options['processing'] = 'Processing Payment';
-        }
-
-        $options['default_symbol'] = sanitize_text_field($_POST['default_symbol']);
-        if (empty($options['default_symbol'])) {
-            $options['default_symbol'] = '₦';
-        }
-
-        $options['paystack_return'] = sanitize_text_field($_POST['paystack_return']);
-        if (empty($options['paystack_return'])) {
-            $options['paystack_return'] = '';
-        }
-
-        $options['paystack_cancel'] = sanitize_text_field($_POST['paystack_cancel']);
-        if (empty($options['paystack_cancel'])) {
-            $options['paystack_cancel'] = '';
         }
 
         update_option("cf7ps_options", $options);
@@ -109,28 +64,12 @@ function cf7ps_admin_table()
     if (empty($options['sec_key_test'])) {
         $options['sec_key_test'] = '';
     }
-    if (empty($options['success'])) {
-        $options['success'] = 'Payment Successful';
-    }
-    if (empty($options['failed'])) {
-        $options['failed'] = 'Payment Failed';
-    }
-    if (empty($options['processing'])) {
-        $options['processing'] = 'Processing Payment';
-    }
-    if (empty($options['paystack_return'])) {
-        $options['paystack_return'] = '';
-    }
-    if (empty($options['paystack_cancel'])) {
-        $options['paystack_cancel'] = '';
-    }
-
     $siteurl = get_site_url();
 
     if (isset($_POST['hidden_tab_value'])) {
-        $active_tab = $_POST['hidden_tab_value'];
+        $active_tab = sanitize_text_field($_POST['hidden_tab_value']);
     } else {
-        $active_tab = isset($_GET['tab']) ? $_GET['tab'] : '1';
+        $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : '1';
     }
 
     ?>
@@ -156,15 +95,13 @@ function cf7ps_admin_table()
 
 
                     <h2 class="nav-tab-wrapper">
-                        <a onclick='closetabs("1,2,3,4");newtab("1");' href="#" id="id1"
+                        <a onclick='closetabs("1,2,3");newtab("1");' href="#" id="id1"
                            class="nav-tab <?php echo $active_tab == '1' ? 'nav-tab-active' : ''; ?>">Getting Started</a>
-                        <a onclick='closetabs("1,2,3,4");newtab("2");' href="#" id="id2"
+                        <a onclick='closetabs("1,2,3");newtab("2");' href="#" id="id2"
                            class="nav-tab <?php echo $active_tab == '2' ? 'nav-tab-active' : ''; ?>">
                             Currency</a>
-                        <a onclick='closetabs("1,2,3,4");newtab("3");' href="#" id="id3"
+                        <a onclick='closetabs("1,2,3");newtab("3");' href="#" id="id3"
                            class="nav-tab <?php echo $active_tab == '3' ? 'nav-tab-active' : ''; ?>">paystack</a>
-                        <a onclick='closetabs("1,2,3,4");newtab("4");' href="#" id="id4"
-                           class="nav-tab <?php echo $active_tab == '4' ? 'nav-tab-active' : ''; ?>">Other</a>
                     </h2>
                     <br/>
 
@@ -223,11 +160,11 @@ function cf7ps_admin_table()
                                     <td>
                                         <select name="currency">
                                             <option <?php if ($options['currency'] == "1") {
-                                                echo "SELECTED";
+                                                _e("SELECTED");
                                             } ?> value="1">Nigeria Naira - NGN
                                             </option>
                                             <option <?php if ($options['currency'] == "2") {
-                                                echo "SELECTED";
+                                                _e("SELECTED");
                                             } ?> value="2">Ghana - GHC
                                             </option>
                                         </select></td>
@@ -253,13 +190,19 @@ function cf7ps_admin_table()
                                 <tr>
                                 <td class='cf7ps_width'><b>Test Mode:</b></td>
 		                        <td class='cf7ps_width'>
-                                <input <?php if ($options['mode'] == "1") { echo "checked='checked'"; } ?> type='radio' name='mode' value='1'>On (Test mode)
-		                        <input <?php if ($options['mode'] == "2") { echo "checked='checked'"; } ?> type='radio' name='mode' value='2'>Off (Live mode)</td>
+                                <input <?php if ($options['mode'] == "1") { _e("checked='checked'"); } ?> type='radio' name='mode' value='1'>On (Test mode)
+		                        <input <?php if ($options['mode'] == "2") { _e("checked='checked'"); } ?> type='radio' name='mode' value='2'>Off (Live mode)</td>
+                                </tr>
+                                <tr>
+                                    <td class='cf7ps_width'><b>Test Secret Key: </b></td>
+                                    <td><input type='text' size=40 name='sec_key_test'
+                                               value='<?php _e($options['sec_key_test']); ?>'> Optional
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class='cf7ps_width'><b>Live Secret Key: </b></td>
                                     <td><input type='text' size=40 name='sec_key_live'
-                                               value='<?php echo $options['sec_key_live']; ?>'> Required to use paystack
+                                               value='<?php _e($options['sec_key_live']); ?>'> Required to use paystack
                                     </td>
                                 </tr>
 
@@ -272,12 +215,6 @@ function cf7ps_admin_table()
                                         <br/><br/>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class='cf7ps_width'><b>Test Secret Key: </b></td>
-                                    <td><input type='text' size=40 name='sec_key_test'
-                                               value='<?php echo $options['sec_key_test']; ?>'> Optional
-                                    </td>
-                                </tr>
 
                                 <tr>
                                     <td>
@@ -289,33 +226,13 @@ function cf7ps_admin_table()
                                     <td>
                                         <br/>
                                     </td>
-                                </tr>
-
-                                <tr>
-                                    <td class='cf7ps_width'><b>Default Text: </b></td>
-                                    <td></td>
-                                </tr> 
-                                <tr>
-                                    <td class='cf7ps_width'><b>Payment Successful: </b></td>
-                                    <td><input type='text' size=40 name='success'
-                                               value='<?php echo $options['success']; ?>'></td>
-                                </tr>
-                                <tr>
-                                    <td class='cf7ps_width'><b>Payment Failed: </b></td>
-                                    <td><input type='text' size=40 name='failed'
-                                               value='<?php echo $options['failed']; ?>'></td>
-                                </tr>
-                                <tr>
-                                    <td class='cf7ps_width'><b>Processing Payment: </b></td>
-                                    <td><input type='text' size=40 name='processing'
-                                               value='<?php echo $options['processing']; ?>'></td>
                                 </tr>
                             </table>
 
                         </div>
                     </div>
 
-
+<!-- 
                     <div id="4"
                          style="display:none;border: 1px solid #CCCCCC;<?php echo $active_tab == '4' ? 'display:block;' : ''; ?>">
                         <div style="background-color:#E4E4E4;padding:8px;font-size:15px;color:#464646;font-weight: 700;border-bottom: 1px solid #CCCCCC;">
@@ -328,12 +245,12 @@ function cf7ps_admin_table()
                                 <tr>
                                     <td class='cf7ps_width'><b>Paystack Return URL: </b></td>
                                     <td><input type='text' name='paystack_return'
-                                               value='<?php echo $options['paystack_return']; ?>'> Optional <br/></td>
+                                               value=''> Optional <br/></td>
                                 </tr>
                                 <tr>
                                     <td class='cf7ps_width'><b>Cancel URL: </b></td>
                                     <td><input type='text' name='paystack_cancel'
-                                               value='<?php echo $options['paystack_cancel']; ?>'> Optional <br/></td>
+                                               value=''> Optional <br/></td>
                                 </tr>
                                 <tr>
                                     <td class='cf7ps_width'></td>
@@ -351,12 +268,12 @@ function cf7ps_admin_table()
                             </table>
 
                         </div>
-                    </div>
+                    </div> -->
 
 
                     <input type='hidden' name='update' value='1'>
                     <input type='hidden' name='hidden_tab_value' id="hidden_tab_value"
-                           value="<?php echo $active_tab; ?>">
+                           value="<?php _e($active_tab); ?>">
 
     </form>
 

@@ -48,6 +48,5 @@ Help is provided via the [plugin support forum](https://wordpress.org/support/pl
 2. Paystack settings Other Setting Tab
 3. Add details on Contact form 7
 
-![alt text](https://github.com/JamesUgbanu/contact-form-7-paystack-integration/blob/master/assets/img/add%20details%20contact%20form%207.PNG)
-![alt text](https://github.com/JamesUgbanu/contact-form-7-paystack-integration/blob/master/assets/img/payment%20tabs.PNG)
-![alt text](https://github.com/JamesUgbanu/contact-form-7-paystack-integration/blob/master/assets/img/currency%20tab.PNG)
+![alt text](https://github.com/JamesUgbanu/contact-form-7-paystack-integration/blob/master/assets/img/paystack%20details%20on%20contact%20form%207.PNG)
+![alt text](https://github.com/JamesUgbanu/contact-form-7-paystack-integration/blob/master/assets/img/paystack%20account.PNG)

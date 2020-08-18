@@ -41,6 +41,14 @@
 		} else {
 			$key = $options['sec_key_live'];
 		}
+		
+		//redirect js
+		wp_enqueue_script( 'cf7ps-redirect_method',plugins_url('../assets/js/redirect.js',__FILE__),array( 'jquery' ),null );
+		wp_localize_script('cf7ps-redirect_method', 'ajax_object_cf7ps',
+		array (
+			'ajax_url' 			=> admin_url('admin-ajax.php'),
+		)
+	);
 	
 		// Front css
 		wp_register_style( 'cf7ps-front-css',plugins_url('../assets/css/cfps-front.css',__FILE__),false,false );

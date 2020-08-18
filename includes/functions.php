@@ -1,8 +1,7 @@
 <?php
 
 	if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-
+    
 	// format currency
 	function cf7ps_format_currency( $price ) {
 		$price 		= 	floatval( preg_replace( '/[^\d\.]/', '', $price ) );

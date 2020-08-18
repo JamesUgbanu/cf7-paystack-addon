@@ -1,11 +1,8 @@
 <?php
+global $formid;
 
-// get variables
-global $postid;
-
-$post_id = $postid;
-
-$enable = get_post_meta($post_id, "_cf7ps_enable", true);
+$post_id = $formid;
+$email = sanitize_text_field($_POST['email']);
 $name = get_post_meta($post_id, "_cf7ps_name", true);
 $amount = get_post_meta($post_id, "_cf7ps_price", true);
 $description = get_post_meta($post_id, "_cf7ps_description", true);
@@ -14,9 +11,6 @@ $description = get_post_meta($post_id, "_cf7ps_description", true);
 $options = get_option('cf7ps_options');
 
 $currency = $options['currency'];
-$payment_success = $options['success'];
-$payment_failed = $options['failed'];
-$payment_processing = $options['processing'];
 
 
 if ($options['mode'] == '1') {
@@ -26,14 +20,7 @@ if ($options['mode'] == '1') {
 }
 
 if (empty($key)){
-    echo "Api keys not set";
-}
-
-if (empty($options['paystack_return'])) {
-    $options['paystack_return'] = '';
-}
-if (empty($options['paystack_cancel'])) {
-    $options['paystack_cancel'] = '';
+    _e("Api keys not set");
 }
 
 // language
@@ -45,22 +32,22 @@ if ($currency == "2") {
 	$language = "GHC";
 } //Ghana
 
-if (empty($email)) {
+if (!is_email($email)) {
     $email = '';
 }
 
 $kobo_amount = $amount*100;
 
-//$email = sanitize_text_field($_POST['email'])
-
 
 $paystack_url = 'https://api.paystack.co/transaction/initialize';
+
                     $headers = array(
                         'Content-Type'  => 'application/json',
                         'Authorization' => 'Bearer '.$key,
                     );
                     
                     $body = array(
+                        'email'        => $email,
                         'amount'       => $kobo_amount,
                         'currency'     => $language,
                     );
@@ -72,16 +59,21 @@ $paystack_url = 'https://api.paystack.co/transaction/initialize';
                     );
 
                     $request = wp_remote_post($paystack_url, $args);
-     
+  
                     if (!is_wp_error($request)) {
-                       $paystack_response = json_decode(wp_remote_retrieve_body($request));
-                       
+                      $paystack_response = json_decode(wp_remote_retrieve_body($request));
+                
                         if ($paystack_response->status) {
-                            $url = $paystack_response->data->authorization_url;
                             
-                            wp_redirect($url);
-                            exit;
-                   }
+                            $url = $paystack_response->data->authorization_url;
+                           
+                            $response = array(
+                                'redirect_url' => esc_url($url),
+                                );
+                                
+                             _e(json_encode($response));
+                                wp_die();
+                  }
                     exit;
                  }
                  
