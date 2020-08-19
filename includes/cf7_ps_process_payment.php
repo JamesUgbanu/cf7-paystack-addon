@@ -15,6 +15,5 @@ function cf7ps_paystack_charge_callback() {
 		if ($enable == "1") {
 			include_once ('redirect.php');
 		}
-        
 		
 }

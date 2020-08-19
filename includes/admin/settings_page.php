@@ -215,16 +215,6 @@ function cf7ps_admin_table()
                                         <br/><br/>
                                     </td>
                                 </tr>
-<<<<<<< HEAD
-=======
-                                <tr>
-                                    <td class='cf7ps_width'><b>Test Secret Key: </b></td>
-                                    <td><input type='text' size=40 name='sec_key_test'
-                                               value='<?php _e($options['sec_key_test']); ?>'> Optional
-                                    </td>
-                                </tr>
->>>>>>> fc1f4e6f0584284babcff86f5532c26271d3a53e
-
                                 <tr>
                                     <td>
                                         <br/>
@@ -243,7 +233,7 @@ function cf7ps_admin_table()
 
 <!-- 
                     <div id="4"
-                         style="display:none;border: 1px solid #CCCCCC;<?php echo $active_tab == '4' ? 'display:block;' : ''; ?>">
+                         style="display:none;border: 1px solid #CCCCCC;>
                         <div style="background-color:#E4E4E4;padding:8px;font-size:15px;color:#464646;font-weight: 700;border-bottom: 1px solid #CCCCCC;">
                             &nbsp; Other Settings
                         </div>

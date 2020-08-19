@@ -49,9 +49,5 @@
 			'ajax_url' 			=> admin_url('admin-ajax.php'),
 		)
 	);
-	
-		// Front css
-		wp_register_style( 'cf7ps-front-css',plugins_url('../assets/css/cfps-front.css',__FILE__),false,false );
-		wp_enqueue_style( 'cf7ps-front-css' );
 	}
 	add_action('wp_enqueue_scripts','cf7ps_public_enqueue',10);
