@@ -11,7 +11,7 @@ $description = get_post_meta($post_id, "_cf7ps_description", true);
 $options = get_option('cf7ps_options');
 
 $currency = $options['currency'];
-
+$paystack_return = $options['paystack_return'];
 
 if ($options['mode'] == '1') {
     $key = $options['sec_key_test'];
@@ -50,6 +50,7 @@ $paystack_url = 'https://api.paystack.co/transaction/initialize';
                         'email'        => $email,
                         'amount'       => $kobo_amount,
                         'currency'     => $language,
+                        'callback_url' => $paystack_return,
                     );
 
                     $args = array(
