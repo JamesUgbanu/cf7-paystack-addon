@@ -17,7 +17,6 @@ Note: This Paystack plugin works with both the old and new Contact Form 7 interf
 *	Set Payment Title, Description and Amount per contact form
 *   Built in support 2 currencies (Please confirm if your country has Paystack payment gateway. For any issue please contact to plugin support)
 *	Paystack testing through SandBox
-*	Choose a cancel payment URL
 *	Choose a succesful payment URL
 
 ## Installation
@@ -36,7 +35,7 @@ You can integrate Paystack payment gateway with Contact Form 7 plugin. If config
 
 ## How do I get help?
 
-Help is provided via the [plugin support forum](https://wordpress.org/support/plugin/contact-form-paystack-addon) only.
+Help is provided via the [plugin support forum](https://wordpress.org/support/plugin/cf7-paystack-addon) only.
 
 ## How do I get Secret or Test Key on Paystack 
 

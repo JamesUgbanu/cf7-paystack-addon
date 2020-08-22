@@ -47,7 +47,7 @@ function cf7ps_admin_table()
 
         echo "<br /><div class='updated'><p><strong>";
         _e("Settings Updated.");
-        echo "</strong></p></div>";
+        _e("</strong></p></div>");
 
     }
 
@@ -112,7 +112,7 @@ function cf7ps_admin_table()
                             Currency</a>
                         <a onclick='closetabs("1,2,3,4");newtab("3");' href="#" id="id3"
                            class="nav-tab <?php echo $active_tab == '3' ? 'nav-tab-active' : ''; ?>">paystack</a>
-                        <a onclick='closetabs("1,2,3,4");newtab("4");' href="#" id="id3"
+                        <a onclick='closetabs("1,2,3,4");newtab("4");' href="#" id="id4"
                            class="nav-tab <?php echo $active_tab == '4' ? 'nav-tab-active' : ''; ?>">Other Settings</a>
                     </h2>
                     <br/>
@@ -245,7 +245,7 @@ function cf7ps_admin_table()
 
 
                     <div id="4"
-                         style="display:none;border: 1px solid #CCCCCC;>
+                         style="display:none;border: 1px solid #CCCCCC; <?php echo $active_tab == '4' ? 'display:block;' : ''; ?>">
                         <div style="background-color:#E4E4E4;padding:8px;font-size:15px;color:#464646;font-weight: 700;border-bottom: 1px solid #CCCCCC;">
                             &nbsp; Other Settings
                         </div>
@@ -261,7 +261,7 @@ function cf7ps_admin_table()
                                 <tr>
                                     <td class='cf7ps_width'></td>
                                     <td>If the customer successfully pays with paystack, where are they redirected to
-                                        after. Example: http://example.com/thankyou.
+                                        after. Example: https://example.com/thankyou.
                                     </td>
                                 </tr>
 

@@ -60,7 +60,6 @@ $paystack_url = 'https://api.paystack.co/transaction/initialize';
                     );
 
                     $request = wp_remote_post($paystack_url, $args);
-  
                     if (!is_wp_error($request)) {
                       $paystack_response = json_decode(wp_remote_retrieve_body($request));
                 
@@ -77,5 +76,6 @@ $paystack_url = 'https://api.paystack.co/transaction/initialize';
                   }
                     exit;
                  }
+                
                  
                  
