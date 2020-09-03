@@ -18,20 +18,20 @@ function cf7ps_paystack_charge_callback() {
 		
 }
 
-function cf7ps_add_logo($output, $tag, $atts, $m) {
+// function cf7ps_add_logo($output, $tag, $atts, $m) {
 
-	$formid = sanitize_text_field(intval($atts['id']));
+// 	$formid = sanitize_text_field(intval($atts['id']));
 
-	$enable = get_post_meta( $formid, "_cf7ps_enable", true);
+// 	$enable = get_post_meta( $formid, "_cf7ps_enable", true);
 
-	if ($enable) {
-		if ($tag === 'contact-form-7') {
-			$image = plugins_url('../assets/img/paystack_secure.png',__FILE__);
-			$logo = "<div><img style='margin: auto;' src='$image' alt='Secured by Paystack'></div>";
-			$output .= $logo;
-		}
-	}
-    return $output;
-}
+// 	if ($enable) {
+// 		if ($tag === 'contact-form-7') {
+// 			$image = plugins_url('../images/paystack_secure.png',__FILE__);
+// 			$logo = "<div><img style='margin: auto;' src='$image' alt='Secured by Paystack'></div>";
+// 			$output .= $logo;
+// 		}
+// 	}
+//     return $output;
+// }
 
-add_filter('do_shortcode_tag', 'cf7ps_add_logo', 10, 4);
+// add_filter('do_shortcode_tag', 'cf7ps_add_logo', 10, 4);
