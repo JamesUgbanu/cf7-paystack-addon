@@ -37,11 +37,17 @@ function cf7ps_admin_table()
             $options['sec_key_test'] = '';
         }
 
+        $options['paystack_return'] = sanitize_text_field($_POST['paystack_return']);
+
+        if (empty($options['paystack_return'])) {
+            $options['paystack_return'] = '';
+        }
+
         update_option("cf7ps_options", $options);
 
         echo "<br /><div class='updated'><p><strong>";
         _e("Settings Updated.");
-        echo "</strong></p></div>";
+        _e("</strong></p></div>");
 
     }
 
@@ -63,6 +69,10 @@ function cf7ps_admin_table()
 
     if (empty($options['sec_key_test'])) {
         $options['sec_key_test'] = '';
+    }
+
+    if (empty($options['paystack_return'])) {
+        $options['paystack_return'] = '';
     }
     $siteurl = get_site_url();
 
@@ -95,13 +105,15 @@ function cf7ps_admin_table()
 
 
                     <h2 class="nav-tab-wrapper">
-                        <a onclick='closetabs("1,2,3");newtab("1");' href="#" id="id1"
+                        <a onclick='closetabs("1,2,3,4");newtab("1");' href="#" id="id1"
                            class="nav-tab <?php echo $active_tab == '1' ? 'nav-tab-active' : ''; ?>">Getting Started</a>
-                        <a onclick='closetabs("1,2,3");newtab("2");' href="#" id="id2"
+                        <a onclick='closetabs("1,2,3,4");newtab("2");' href="#" id="id2"
                            class="nav-tab <?php echo $active_tab == '2' ? 'nav-tab-active' : ''; ?>">
                             Currency</a>
-                        <a onclick='closetabs("1,2,3");newtab("3");' href="#" id="id3"
+                        <a onclick='closetabs("1,2,3,4");newtab("3");' href="#" id="id3"
                            class="nav-tab <?php echo $active_tab == '3' ? 'nav-tab-active' : ''; ?>">paystack</a>
+                        <a onclick='closetabs("1,2,3,4");newtab("4");' href="#" id="id4"
+                           class="nav-tab <?php echo $active_tab == '4' ? 'nav-tab-active' : ''; ?>">Other Settings</a>
                     </h2>
                     <br/>
 
@@ -231,9 +243,9 @@ function cf7ps_admin_table()
                         </div>
                     </div>
 
-<!-- 
+
                     <div id="4"
-                         style="display:none;border: 1px solid #CCCCCC;>
+                         style="display:none;border: 1px solid #CCCCCC; <?php echo $active_tab == '4' ? 'display:block;' : ''; ?>">
                         <div style="background-color:#E4E4E4;padding:8px;font-size:15px;color:#464646;font-weight: 700;border-bottom: 1px solid #CCCCCC;">
                             &nbsp; Other Settings
                         </div>
@@ -242,19 +254,14 @@ function cf7ps_admin_table()
                             <table style="width: 100%;">
 
                                 <tr>
-                                    <td class='cf7ps_width'><b>Paystack Return URL: </b></td>
+                                    <td class='cf7ps_width'><b>Paystack Redirect URL: </b></td>
                                     <td><input type='text' name='paystack_return'
-                                               value=''> Optional <br/></td>
-                                </tr>
-                                <tr>
-                                    <td class='cf7ps_width'><b>Cancel URL: </b></td>
-                                    <td><input type='text' name='paystack_cancel'
-                                               value=''> Optional <br/></td>
+                                    value='<?php _e($options['paystack_return']); ?>'> Optional <br/></td>
                                 </tr>
                                 <tr>
                                     <td class='cf7ps_width'></td>
                                     <td>If the customer successfully pays with paystack, where are they redirected to
-                                        after. Example: http://example.com/thankyou.
+                                        after. Example: https://example.com/thankyou.
                                     </td>
                                 </tr>
 
@@ -267,7 +274,7 @@ function cf7ps_admin_table()
                             </table>
 
                         </div>
-                    </div> -->
+                    </div>
 
 
                     <input type='hidden' name='update' value='1'>

@@ -7,7 +7,7 @@ Author: James Ugbanu
 Text Domain: cf7-ps
 Author URI: https://crystalwebpro.com
 License: GPL2
-Version: 1.0
+Version: 1.2
 */
 
 /*  Copyright 2020 James Ugbanu

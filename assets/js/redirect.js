@@ -27,7 +27,10 @@ jQuery(document).ready(function ($) {
                 withCredentials: true
             },
             success: function (response) {
-                window.location.replace(response.redirect_url);
+                if(response.redirect_url) {
+                    window.location.replace(response.redirect_url);
+                }
+                alert("Please check your Keys or try again later...");
             }
         });
         
