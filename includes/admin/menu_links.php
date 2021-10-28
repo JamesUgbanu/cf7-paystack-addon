@@ -11,12 +11,15 @@ function cf7ps_admin_menu() {
 
 // plugin page links
 add_filter('plugin_action_links', 'cf7ps_plugin_settings_link', 10, 2 );
-function cf7ps_plugin_settings_link($links,$file) {
-	
-	if ($file == 'contact-form-7-paystack-integration/ps.php') {		
-		$settings_link = 	'<a href="admin.php?page=cf7ps_admin_table">' . __('Settings', 'PTP_LOC') . '</a>';
-		array_unshift($links, $settings_link);
-	}
-	
-	return $links; 
+function cf7ps_plugin_settings_link($actions, $plugin_file) {
+	static $plugin;
+	if (!isset($plugin))
+        $plugin = plugin_basename(__FILE__);
+   if ($plugin == $plugin_file) {
+      $settings = array('settings' => '<a href="admin.php?page=cf7ps_admin_table"">' 
+	  . __('Settings', 'General') . '</a>');     
+      $actions = array_merge($settings, $actions);
+   }
+     
+   return $actions;
 }
