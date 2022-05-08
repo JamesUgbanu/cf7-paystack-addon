@@ -10,7 +10,7 @@ License: GPL2
 Version: 1.0
 */
 
-/*  Copyright 2020 James Ugbanu
+/*  Copyright 2022 James Ugbanu
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
